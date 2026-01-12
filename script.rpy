@@ -19,15 +19,13 @@ define Ch = Character('Чиона', color="#fffbc8",
     what_xfill=False,       # не растягивается
     what_layout="subtitle")
 
-Хуита 
 
 
+    image Pifon_def = "Pifon_def.png"
 
-image Pifon_def = "Pifon_def.png"
+    image Chiona_def = "Chiona_def.png"
 
-image Chiona_def = "Chiona_def.png"
-
-image Pifon_book = "Pifon_book.PNG"
+    image Pifon_book = "Pifon_book.PNG"
 
 # Игра начинается здесь:
 label start:
