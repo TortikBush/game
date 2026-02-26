@@ -55,7 +55,6 @@ define gui.hover_muted_color = '#5b7a99'
 define gui.text_color = '#ffffff'
 define gui.interface_text_color = '#ffffff'
 
-
 ## Шрифты и их размеры #########################################################
 
 ## Шрифт, используемый внутриигровым текстом.
