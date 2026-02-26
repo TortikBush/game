@@ -344,29 +344,28 @@ init python:
 ## Этот экран включает в себя главное и игровое меню, и обеспечивает навигацию к
 ## другим меню и к началу игры.
 
-screen navigation():
 
+screen navigation():
+    vbox:
+        style_prefix "navigation"
+        xpos 2350
+        yalign 0.60
+        if main_menu:
+            textbutton _("НАЧАТЬ ИГРУ") text_font gui.text_font_neothic text_size 180 xpos 1 action Start()
+            
     vbox:
         style_prefix "navigation"
 
-        xpos gui.navigation_xpos
-        yalign 0.5
-
+        xpos 3000
+        yalign 0.975
+        
         spacing gui.navigation_spacing
+        if main_menu == False:
+            textbutton _("ИСТОРИЯ") action ShowMenu ("history")
+            textbutton  _("СОХРОНИТЬ") action  ShowMenu("save")
 
-        if main_menu:
-
-            textbutton _("Начать") action Start()
-
-        else:
-
-            textbutton _("История") action ShowMenu("history")
-
-            textbutton _("Сохранить") action ShowMenu("save")
-
-        textbutton _("Загрузить") action ShowMenu("load")
-
-        textbutton _("Настройки") action ShowMenu("preferences")
+        textbutton  _("ЗАГРУЗИТЬ")action  ShowMenu("load")
+        textbutton  _("НАСТРОЙКИ")action ShowMenu("preferences")
 
         if _in_replay:
 
@@ -388,6 +387,23 @@ screen navigation():
             ## Кнопка выхода блокирована в iOS и не нужна на Android и в веб-
             ## версии.
             textbutton _("Выход") action Quit(confirm=not main_menu)
+
+# эта функция под стрелочку ("но хз сможет она существовать или нет=(" )
+# screen menu_button(text, action=None):
+
+#     default hovered = False
+
+#     button:
+#         style_prefix "navigation"
+#         background None
+#         action action
+#         hovered SetScreenVariable("hovered", True)
+#         unhovered SetScreenVariable("hovered", False)
+
+#         hbox:
+#             spacing 25
+            
+#             text text
 
 
 style navigation_button is gui_button
@@ -422,17 +438,7 @@ screen main_menu():
     ## Оператор use включает отображение другого экрана в данном. Актуальное
     ## содержание главного меню находится на экране навигации.
     use navigation
-
-    if gui.show_name:
-
-        vbox:
-            style "main_menu_vbox"
-
-            text "[config.name!t]":
-                style "main_menu_title"
-
-            text "[config.version]":
-                style "main_menu_version"
+       
 
 
 style main_menu_frame is empty

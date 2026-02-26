@@ -20,11 +20,11 @@ define Ch = Character('Чиона', color="#fffbc8",
     what_layout="subtitle")
 
 
-    image Pifon_def = "Pifon_def.png"
+image Pifon_def = "Pifon_def.PNG"
 
-    image Chiona_def = "Chiona_def.png"
+image Chiona_def = "Chiona_def.png"
 
-    image Pifon_book = "Pifon_book.PNG"
+
 
 # Игра начинается здесь:
 label start:
@@ -38,5 +38,7 @@ label start:
     show Chiona_def at right with dissolve
 
     Ch "Тест"
+    
+    return
 
    
